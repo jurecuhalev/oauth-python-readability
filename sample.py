@@ -1,6 +1,4 @@
-from oauth import oauth
 from oauthreadability import OAuthApi
-import pprint
 
 consumer_key = ""
 consumer_secret = ""
@@ -20,15 +18,13 @@ access_token = readability.getAccessToken(temp_credentials, oauth_verifier)
 print("oauth_token: " + access_token['oauth_token'])
 print("oauth_token_secret: " + access_token['oauth_token_secret'])
 
-# access_token = {'oauth_token': 'sjKcmqbm4N5jShge83',
-#                 'oauth_token_secret': 'W8s4vhT25LBZh5y5yvbxRH96CrRZ69b6'}
+
+# access_token = {'oauth_token': '',
+#                 'oauth_token_secret': ''}
 
 # # Do a test API call using our new credentials
 
 readability = OAuthApi(consumer_key, consumer_secret, access_token['oauth_token'], access_token['oauth_token_secret'])
 
-
-#print readability.getSubresources()
 print readability.getBookmarks()
-
-#print readability.addBookmark('http://tech.slashdot.org/story/11/02/09/1820253/MPAA-Threatens-To-Disconnect-Google-From-Internet')
+print readability.addBookmark(url='http://blog.arc90.com/2010/11/30/silence-is-golden/')
